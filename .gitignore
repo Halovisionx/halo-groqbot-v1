@@ -1,2 +1,3 @@
 .streamlit/secrets.toml
 venv
+./src/auth/client_secret.json.json

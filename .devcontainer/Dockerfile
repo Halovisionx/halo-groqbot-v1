@@ -1,26 +1,23 @@
-# Use the official Python image from the Docker Hub
+# Use an official Python runtime as a parent image
 FROM python:3.9-slim
 
-# Set the working directory
+# Set the working directory in the container
 WORKDIR /workspace
 
-# Copy the requirements file into the container
+# Copy requirements.txt first
 COPY requirements.txt .
 
-# Create and activate a virtual environment
-RUN python -m venv /workspace/venv
-
-# Install dependencies with a longer timeout
-RUN /workspace/venv/bin/pip install --no-cache-dir -r requirements.txt --default-timeout=100
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Install Streamlit
-RUN /workspace/venv/bin/pip install streamlit
+RUN pip install streamlit
 
-# Copy the rest of the application code into the container
+# Copy the rest of the application code into the container at /workspace
 COPY . .
 
-# Expose the port that Streamlit will run on
+# Make port 8501 available to the world outside this container
 EXPOSE 8501
 
-# Command to run the Streamlit app
+# Run streamlit_app.py when the container launches
 CMD ["/workspace/venv/bin/streamlit", "run", "streamlit_app.py"]
