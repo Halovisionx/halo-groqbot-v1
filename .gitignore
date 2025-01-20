@@ -1,3 +1,4 @@
 .streamlit/secrets.toml
 venv
-src/auth/client_secret.json.json
+src/auth/client_secret.json
+.devcontainer/Dockerfile
