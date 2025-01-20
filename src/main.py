@@ -41,7 +41,7 @@ if st.button("Authorize Google"):
     # Handle the callback and get the credentials
     code = st.experimental_get_query_params().get('code')
     if code:
-        creds = handle_google_callback(google_client_secrets_file, code[0])
+        creds = handle_google_callback(code[0])
         st.write(f'Google credentials: {creds}')
 
 # Display Chat UI
