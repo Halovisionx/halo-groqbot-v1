@@ -1,0 +1,8 @@
+streamlit
+requests
+requests-oauthlib
+google-auth
+google-auth-oauthlib
+pandas
+groq
+sqlalchemy
