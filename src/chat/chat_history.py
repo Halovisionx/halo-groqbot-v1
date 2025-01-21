@@ -1,5 +1,7 @@
+# src/chat/chat_history.py
 import pandas as pd
-import sqlite3
+from sqlalchemy.orm import Session
+from src.db import get_db
 
 def init_db():
     conn = sqlite3.connect('chat_history.db')
@@ -16,8 +18,9 @@ def save_message(role, content):
     conn.commit()
     conn.close()
 
+
+
 def load_messages():
-    conn = sqlite3.connect('chat_history.db')
+    conn = next(get_db())
     df = pd.read_sql_query("SELECT * FROM messages", conn)
-    conn.close()
     return df

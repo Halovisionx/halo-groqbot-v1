@@ -1,2 +1,7 @@
 # src/auth/__init__.py
-# Bu dosya boş olabilir, ancak paket düzeyinde başlatma kodları ekleyebilirsiniz.
+
+src/
+    __init__.py
+    main.py
+    user_auth.py
+    ...

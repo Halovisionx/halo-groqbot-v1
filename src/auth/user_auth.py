@@ -1,6 +1,7 @@
+# src/user_auth.py
 import streamlit as st
 from src.models.user import User
-from src.database.db import get_db
+from src.db import get_db
 
 def register_user(username, password):
     db = get_db()
